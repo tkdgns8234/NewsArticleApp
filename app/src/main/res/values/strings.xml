@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NewsArticleApp</string>
+    <string name="home">home</string>
+    <string name="clip">clip</string>
+    <string name="delete">delete</string>
+    <string name="edit_text_hint">원하는 기사를 검색해주세요</string>
+    <string name="toast_delete_article">클립된 기사를 제거하였습니다.</string>
+    <string name="toast_clip_article">기사를 클립했습니다.</string>
+
+</resources>

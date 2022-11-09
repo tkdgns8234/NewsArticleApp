@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.web_view.WebViewActivity">
+
+        <!--?attr/ 키워드로 앱 테마에 접근 가능 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/webStatusBar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:elevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/btn_close"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?attr/selectableItemBackground"
+                android:src="@drawable/ic_baseline_close_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_forward"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?attr/selectableItemBackground"
+                android:src="@drawable/ic_forward_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?attr/selectableItemBackground"
+                android:src="@drawable/ic_back_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/btn_forward"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--
+            android:imeOptions="actionDone"
+            action 버튼이 눌렸을 때 키보드 closed 됨
+             -->
+            <EditText
+                android:id="@+id/et_addressBar"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:background="@drawable/shape_address_button"
+                android:imeOptions="actionDone"
+                android:inputType="textUri"
+                android:paddingHorizontal="15dp"
+                android:selectAllOnFocus="true"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_back"
+                app:layout_constraintStart_toEndOf="@id/btn_close"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/layoutRefresh"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/webStatusBar">
+
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/webStatusBar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
